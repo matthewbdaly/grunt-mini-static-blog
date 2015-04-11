@@ -1,0 +1,17 @@
+{{> header }}
+
+{{#each posts}}
+    <article>
+        <p>{{ this.meta.formattedDate }}</p>
+        <h1><a href="{{ this.path }}">{{this.meta.title}}</a></h1>
+        {{{ this.post.content }}}
+    </article>
+{{/each}}
+{{#if prevChunk}}
+    <a href="/posts/{{ prevChunk }}/">Newer</a>
+{{/if}}
+
+{{#if nextChunk}}
+    <a href="/posts/{{ nextChunk }}/">Older</a>
+{{/if}}
+{{> footer }}
